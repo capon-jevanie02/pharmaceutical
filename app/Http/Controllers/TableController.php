@@ -11,6 +11,6 @@ class TableController extends Controller
     public function index()
     {
         // Correct the path to 'admin.table' for views in resources/views/admin
-        return view('admin.table'); // This will look for resources/views/admin/table.blade.php
+        return view('views'); // This will look for resources/views/admin/table.blade.php
     }
 }
