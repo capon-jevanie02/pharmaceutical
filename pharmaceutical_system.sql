@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 25, 2024 at 12:54 PM
+-- Generation Time: Dec 09, 2024 at 09:53 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -134,7 +134,8 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`, `created_
 (6, 'fromm', 'sdd', NULL, '455.00', '2024-11-22 23:58:31', '2024-11-22 23:58:31'),
 (7, 'fromm', 'sdd', NULL, '455.00', '2024-11-22 23:59:05', '2024-11-22 23:59:05'),
 (8, 'fromm', 'ddd', NULL, '455.00', '2024-11-23 00:03:42', '2024-11-23 00:03:42'),
-(9, 'biogeseck', 'sss', NULL, '34.00', '2024-11-23 00:06:07', '2024-11-23 00:06:07');
+(9, 'biogeseck', 'sss', NULL, '34.00', '2024-11-23 00:06:07', '2024-11-23 00:06:07'),
+(10, 'parecetamol', 'gsdgdgd', NULL, '55.00', '2024-11-25 05:47:02', '2024-11-25 05:47:02');
 
 -- --------------------------------------------------------
 
@@ -238,7 +239,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
