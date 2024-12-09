@@ -83,7 +83,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -93,20 +93,20 @@
             <li class="menu-item">
               <a href="{{ asset ('javascript:void(0);') }}" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <div data-i18n="Layouts">About Products</div>
               </a>
 
               <ul class="menu-sub">
   <li class="menu-item">
     <a href="{{ route('cart') }}" class="menu-link">
-      <div data-i18n="Without menu">Without menu</div>
+      <div data-i18n="Without menu">Cart</div>
     </a>
   </li>
 
                 </li>
                 <li class="menu-item">
                   <a href="{{ route('products.create') }}" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
+                    <div data-i18n="Without navbar">Create Products</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -565,14 +565,6 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
 
    @endsection

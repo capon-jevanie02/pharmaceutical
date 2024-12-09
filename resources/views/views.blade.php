@@ -1,6 +1,3 @@
-@extends('dashboard.admin')
-  
-@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,10 +41,17 @@
             <h3 class="mt-2">Laravel Add to Cart Example - ItSolutionStuff.com</h3>
         </div>
         <div class="col-md-2 text-right main-section">
+       
             <div class="dropdown">
+            <a href="{{ route('home') }}" class="btn btn-secondary"><i class="fa fa-angle-left"></i> Dashboard</a>
                 <button type="button" class="btn btn-info dropdown-toggle mt-1" data-bs-toggle="dropdown">
+                
+                
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
                 </button>
+                
+                
+               
                 <div class="dropdown-menu">
                     <div class="row total-header-section">
                         <div class="col-lg-6 col-sm-6 col-6">
@@ -100,4 +104,3 @@
      
 </body>
 </html>
-@endsection
