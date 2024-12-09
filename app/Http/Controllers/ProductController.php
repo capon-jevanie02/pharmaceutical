@@ -7,6 +7,12 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+
+
+
+
+
+    
     /**
      * Display a listing of products.
      *
@@ -120,14 +126,20 @@ class ProductController extends Controller
      * @return void
      */
     public function remove(Request $request)
-    {
-        if ($request->id) {
-            $cart = session()->get('cart');
-            if (isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('success', 'Product removed successfully');
+{
+    if ($request->id) {
+        $cart = session()->get('cart');
+
+          if (isset($cart[$request->id])) {
+            unset($cart[$request->id]);
+            session()->put('cart', $cart);
+
+            return response()->json(['success' => 'Product removed successfully']);
         }
     }
-}
+
+    return response()->json(['error' => 'Invalid product ID'], 400);
+}  
+
+
+} 

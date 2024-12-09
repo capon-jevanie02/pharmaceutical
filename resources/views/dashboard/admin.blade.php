@@ -1,8 +1,53 @@
-@extends('auth.design')
-@section('content')
+<html
+  lang="en"
+  class="light-style customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
 
+    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
-  <body>
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('sneat/assets/img/favicon/favicon.ico') }}" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{ asset('sneat/assets/vendor/fonts/boxicons.css') }}" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{{ asset('sneat/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('sneat/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('sneat/assets/css/demo.css') }}" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{ asset('sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="{{ asset('sneat/assets/vendor/css/pages/page-auth.css') }}" />
+
+  <!-- Helpers -->
+  <script src="{{ asset('sneat/assets/vendor/js/helpers.js') }}"></script>
+
+<!-- Config -->
+<script src="{{ asset('sneat/assets/js/config.js') }}"></script>
+<body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -69,11 +114,7 @@
               <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
             </a>
 
-            <a href="{{ asset ('javascript:void(0)') }}
-
-
-
-            ;" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
             </a>
           </div>
@@ -88,28 +129,20 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+            
 
             <!-- Layouts -->
             <li class="menu-item">
-              <a href="{{ asset ('javascript:void(0);') }}" class="menu-link menu-toggle">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Layouts</div>
               </a>
 
               <ul class="menu-sub">
-<<<<<<< HEAD
                 <li class="menu-item">
-                  <a href=href="{{ route('login') }}" class="menu-link">
+                  <a href="{{ route('cart') }}" class="menu-link">
                     <div data-i18n="Without menu">Without menu</div>
                   </a>
-=======
-  <li class="menu-item">
-    <a href="{{ route('cart') }}" class="menu-link">
-      <div data-i18n="Without menu">Without menu</div>
-    </a>
-  </li>
-
->>>>>>> 2d2108c1a4e031f28fb4cc94f38c6017fbb6635b
                 </li>
                 <li class="menu-item">
                   <a href="{{ route('products.create') }}" class="menu-link">
@@ -343,10 +376,8 @@
             </li>
 
             <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tablessss</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
             <!-- Forms -->
-
-
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -385,11 +416,10 @@
             </li>
             <!-- Tables -->
             <li class="menu-item">
-    <a href="{{ route('admin.table') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-table"></i>
-        <div data-i18n="Tables">Tablessss</div>
-    </a>
-</li>
+              <a href="tables-basic.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="Tables">Tables</div>
+              </a>
             </li>
             <!-- Misc -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
@@ -445,6 +475,7 @@
                 </div>
               </div>
               <!-- /Search -->
+              
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
@@ -459,63 +490,59 @@
                     >Star</a
                   >
                 </li>
-
+               
                 <!-- User -->
-                <!-- User -->
-<li class="nav-item navbar-dropdown dropdown-user dropdown">
-  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-    <div class="avatar avatar-online">
-      <!-- Display the user avatar or default image -->
-      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-    </div>
-  </a>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li>
-      <a class="dropdown-item" href="#">
-        <div class="d-flex">
-          <div class="flex-shrink-0 me-3">
-            <div class="avatar avatar-online">
-              <!-- User's avatar -->
-              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-            </div>
-          </div>
-          <div class="flex-grow-1">
-            <!-- Display logged-in user's name and role -->
-            <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
-            <small class="text-muted">{{ Auth::user()->role ?? 'User' }}</small> <!-- Assuming role field exists -->
-          </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <div class="dropdown-divider"></div>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">
-        <i class="bx bx-user me-2"></i>
-        <span class="align-middle">My Profile</span>
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">
-        <i class="bx bx-cog me-2"></i>
-        <span class="align-middle">Settings</span>
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">
-        <span class="d-flex align-items-center align-middle">
-          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-          <span class="flex-grow-1 align-middle">Billing</span>
-          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <div class="dropdown-divider"></div>
-    </li>
-    <li>
-      <!-- Logout option -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block">John Doe</span>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-cog me-2"></i>
+                        <span class="align-middle">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <!-- Logout option -->
       <a class="dropdown-item" href="{{ route('logout') }}" 
          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         <i class="bx bx-power-off me-2"></i>
@@ -524,41 +551,32 @@
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
       </form>
-    </li>
-  </ul>
-</li>
-<!--/ User -->
-
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                 <!--/ User -->
               </ul>
             </div>
           </nav>
+          @yield('content')
+         
+                <!--/ Expense Overview -->
 
-          <!-- / Navbar -->
+                <!-- Transactions -->
+                
+                       
+                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Transactions -->
+              </div>
+            </div>
+            <!-- / Content -->
 
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row">
-                <div class="col-lg-8 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                        <!-- Display logged-in user's name and role -->
-              <span class="fw-semibold d-block"><p>Welcome Back</p>{{ Auth::user()->name }}</span>
-    
-                          <p class="mb-4">
-                            You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                            your profile.
-                          </p>
-
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
-                        </div>
-                      </div>
-                      
 
             <div class="content-backdrop fade"></div>
           </div>
@@ -570,16 +588,23 @@
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
+  
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
+     <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+     <!-- Core JS -->
+     <script src="{{ asset('sneat/assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('sneat/assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('sneat/assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('sneat/assets/vendor/js/menu.js') }}"></script>
 
-   @endsection
+    <!-- Main JS -->
+    <script src="{{ asset('sneat/assets/js/main.js') }}"></script>
+
+    <!-- GitHub Buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>
