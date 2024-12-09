@@ -460,24 +460,44 @@
                 <i class="bx bx-menu bx-sm"></i>
               </a>
             </div>
-
+            
+            
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div>
+
+
+              
+              <form action="{{ route('products.view') }}" method="GET" class="mb-4"> 
+    <div class="input-group">
+        <!-- Search Icon -->
+        <span class="input-group-text bg-white border-end-0">
+            <i class="bx bx-search fs-5 text-muted"></i>
+        </span>
+        
+        <!-- Search Input -->
+        <input
+            type="text"
+            name="search"
+            class="form-control border-start-0"
+            placeholder="Search products..."
+            aria-label="Search"
+
+            value="{{ old('search', $search ?? '') }}"
+        />
+        
+        <!-- Search Button -->
+        <button class="btn btn-primary" type="submit">
+            Search
+        </button>
+    </div>
+</form>
+
               <!-- /Search -->
               
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+              
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
                   <a
@@ -551,6 +571,7 @@
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
       </form>
+
                       </a>
                     </li>
                   </ul>

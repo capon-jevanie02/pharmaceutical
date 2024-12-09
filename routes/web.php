@@ -28,7 +28,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
     Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
     Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
-Route::post('/checkout', [ProductController::class, 'checkout'])->name('checkout');
+   Route::post('/checkout', [ProductController::class, 'checkout'])->name('checkout');
+
+
+  Route::get('/products', [ProductController::class, 'views'])->name('products.view');
+     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+   Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+   Route::put('/products/update/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/products/destroy/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
     Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('products', [ProductController::class, 'store'])->name('products.store');

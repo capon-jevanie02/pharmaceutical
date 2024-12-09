@@ -8,12 +8,19 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of products.
+     * Display a listing of products with optional search functionality.
      */
-    public function views()
+    public function views(Request $request)
     {
-        $products = Product::all();
-        return view('products', compact('products')); // Points to resources/views/products.blade.php
+        $search = $request->input('search');
+
+        $products = $search
+            ? Product::where('name', 'LIKE', "%$search%")
+                ->orWhere('description', 'LIKE', "%$search%")
+                ->get()
+            : Product::all();
+
+        return view('products', compact('products', 'search')); // Points to resources/views/products.blade.php
     }
 
     /**
@@ -24,32 +31,33 @@ class ProductController extends Controller
         return view('products.create'); // Points to resources/views/products/create.blade.php
     }
 
+    /**
+     * Store a new product.
+     */
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-    $product = new Product();
-    $product->name = $request->name;
-    $product->description = $request->description;
-    $product->price = $request->price;
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
 
-    // Save image to public/upload/product_images
-    if ($request->hasFile('image')) {
-        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move(public_path('upload/product_images'), $imageName);
-        $product->image = $imageName;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('upload/product_images'), $imageName);
+            $product->image = $imageName;
+        }
+
+        $product->save();
+
+        return redirect()->route('products.view')->with('success', 'Product created successfully!');
     }
-
-    $product->save();
-
-    return redirect()->route('products.create')->with('success', 'Product created successfully!');
-}
-
 
     /**
      * Add a product to the cart.
@@ -106,10 +114,15 @@ class ProductController extends Controller
     /**
      * Update product quantity in the cart.
      */
-    public function update(Request $request)
+    public function updateCart(Request $request)
     {
-        if ($request->id && $request->quantity) {
-            $cart = session()->get('cart');
+        $request->validate([
+            'id' => 'required|integer',
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        $cart = session()->get('cart', []);
+        if (isset($cart[$request->id])) {
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
             session()->flash('success', 'Cart updated successfully');
@@ -121,13 +134,75 @@ class ProductController extends Controller
      */
     public function remove(Request $request)
     {
-        if ($request->id) {
-            $cart = session()->get('cart');
-            if (isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
+        $request->validate([
+            'id' => 'required|integer'
+        ]);
+
+        $cart = session()->get('cart', []);
+        if (isset($cart[$request->id])) {
+            unset($cart[$request->id]);
+            session()->put('cart', $cart);
             session()->flash('success', 'Product removed successfully');
         }
+    }
+
+    /**
+     * Show the form for editing a product.
+     */
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('products.edit', compact('product')); // Points to resources/views/products/edit.blade.php
+    }
+
+    /**
+     * Update the specified product in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+
+        if ($request->hasFile('image')) {
+            // Delete the old image
+            if ($product->image && file_exists(public_path('upload/product_images/' . $product->image))) {
+                unlink(public_path('upload/product_images/' . $product->image));
+            }
+
+            // Save the new image
+            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('upload/product_images'), $imageName);
+            $product->image = $imageName;
+        }
+
+        $product->save();
+
+        return redirect()->route('products.view')->with('success', 'Product updated successfully!');
+    }
+
+    /**
+     * Remove the specified product from storage.
+     */
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+
+        // Delete the product's image
+        if ($product->image && file_exists(public_path('upload/product_images/' . $product->image))) {
+            unlink(public_path('upload/product_images/' . $product->image));
+        }
+
+        $product->delete();
+
+        return redirect()->route('products.view')->with('success', 'Product deleted successfully!');
     }
 }
