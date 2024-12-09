@@ -97,12 +97,19 @@
               </a>
 
               <ul class="menu-sub">
+<<<<<<< HEAD
+                <li class="menu-item">
+                  <a href=href="{{ route('login') }}" class="menu-link">
+                    <div data-i18n="Without menu">Without menu</div>
+                  </a>
+=======
   <li class="menu-item">
     <a href="{{ route('cart') }}" class="menu-link">
       <div data-i18n="Without menu">Cart</div>
     </a>
   </li>
 
+>>>>>>> 2d2108c1a4e031f28fb4cc94f38c6017fbb6635b
                 </li>
                 <li class="menu-item">
                   <a href="{{ route('products.create') }}" class="menu-link">
